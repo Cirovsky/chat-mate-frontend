@@ -22,25 +22,28 @@ export class ClassPawn extends ClassPiece {
             const moveF1: number = color === 'white' ? 1 : -1;
             const moveF2: number = color === 'white' ? 2 : -2;
             const positionColumn: string = "" + String.fromCharCode(column + 96);
-            /* const leftColumn: string|null = position > 1? "" + String.fromCharCode((position - 1) +96): null;
-            const rightColumn: string|null = position === 8? "" + String.fromCharCode((position + 1) +96): null; */
 
+            const move1 = positionColumn + (line + moveF1);
+            const move2 = positionColumn + (line + moveF2);
+            let fieldMove: Array<IField> = []
             if (line === 2 || line === 7) {
-                const move1 = positionColumn + (line + moveF1);
 
-                const move2 = positionColumn + (line + moveF2);
-
-                const fieldMove: Array<IField> = newBoard.filter(field => field.id === move1 || field.id === move2);
+                fieldMove= newBoard.filter(field => 
+                    (field.id === move1 || field.id === move2) &&
+                    field.piece === null
+                    );
                 const captureMoves = checkMoveCapture(column, line, moveF1, color, newBoard)
                 possibleMoves = [...fieldMove, ...captureMoves];
             } else {
-                const move1 = positionColumn + (line + moveF1);
+                fieldMove = newBoard.filter(field => 
+                    field.id === move1 &&
+                    field.piece === null
+                    );
+            }
                 const captureMoves = checkMoveCapture(column, line, moveF1, color, newBoard)
-                const fieldMove: Array<IField> = newBoard.filter(field => field.id === move1);
-
 
                 possibleMoves = [...fieldMove, ...captureMoves];
-            }
+            
 
             return possibleMoves;
 
@@ -59,7 +62,7 @@ export class ClassPawn extends ClassPiece {
                         field.piece.color != color &&
                         (field.id === rightcaptureMove ||field.id === leftcaptureMove)
                     ) : [];
-            console.log(captureMoves)
+            console.log(captureMoves);
             return captureMoves;
         }
     }

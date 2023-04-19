@@ -49,6 +49,10 @@ export default function Field({ id, line, color, piece, placeable, selected }: F
         const goal = copyBoard.find(field => field.id === id);
         const origin = copyBoard.find(field => field.selected === true)
         if(goal && origin && goal.placeable){
+            if(goal.piece){
+                console.log(goal.piece)
+                goal.piece = null;
+            }
             goal.piece = origin.piece;
             if(goal.piece){
                 goal.piece.position = id;
@@ -64,7 +68,7 @@ export default function Field({ id, line, color, piece, placeable, selected }: F
     return (
         <li
             onClick={() => {
-                if (piece) {
+                if (piece && !placeable) {
                     showPossibleMoves();
                 } else {
                     makeMove();
