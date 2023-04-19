@@ -4,6 +4,7 @@ export interface IField{
     id: string,
     line: number,
     color: string,
-    piece?: ClassPiece,
-    placeable: boolean
+    piece?: ClassPiece| null,
+    placeable: boolean,
+    selected: boolean
 }

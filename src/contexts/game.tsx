@@ -22,7 +22,8 @@ const DEFAULT_VALUE ={
 export const GameContext = createContext<PropsUseContext>(DEFAULT_VALUE);
 
 export const GameContextProvider = ({children}:GameContextProviderProps) =>{
-    const [board, setBoard] = useState(DEFAULT_VALUE.board);
+    const [board, setBoard] = useState(DEFAULT_VALUE.board);;
+
     return(
         <GameContext.Provider value={{board, setBoard}}>
         {children}

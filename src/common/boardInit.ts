@@ -18,7 +18,9 @@ function createCoordinates() {
                 id: `${String.fromCharCode(letter)}${number}`,
                 line: number,
                 color: color ? 'black' : 'white',
-                placeable: false
+                placeable: false,
+                piece: null,
+                selected: false
             }
             color = !color;
             newCoordinates.push(field);

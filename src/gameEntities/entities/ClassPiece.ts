@@ -11,8 +11,8 @@ export class ClassPiece{
         this.color = color;
         this.position = position;
         this.possibleMoves = [];
-        this.pieceId = "" + type + color + position
+        this.pieceId = "" + type + color + position;
     }
-    getPossibleMoves(position: string, board: Array<IField>){
+    getPossibleMoves(board: Array<IField>){
     }
 }
