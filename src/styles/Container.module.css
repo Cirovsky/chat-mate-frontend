@@ -1,0 +1,7 @@
+.containerV, .containerH{
+    display: flex;
+}
+
+.containerV{
+    flex-direction: column;
+}

@@ -1,0 +1,16 @@
+.fieldBlack, .fieldWhite{
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+    height: 5vw;
+    border: solid 2px rgb(117, 117, 117);
+}
+
+.white{
+    background-color: rgb(213, 247, 248);
+}
+
+.black{
+    background-color: rgb(47, 63, 48);
+}
+
