@@ -3,14 +3,17 @@
     align-items: center;
     width: 5vw;
     height: 5vw;
-    border: solid 2px rgb(117, 117, 117);
+    border: solid 2px rgb(226, 226, 189);
 }
 
 .white{
-    background-color: rgb(213, 247, 248);
+    background-color: rgb(151, 185, 187);
 }
 
 .black{
-    background-color: rgb(47, 63, 48);
+    background-color: rgb(114, 108, 102);
 }
 
+.placeable{
+    background-color: aqua;
+}

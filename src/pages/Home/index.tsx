@@ -1,9 +1,12 @@
 import Board from 'components/Board';
+import { GameContextProvider } from 'contexts/game';
 
 export default function Home() {
     return (
         <main>
-            <Board/>
+            <GameContextProvider>
+                <Board/>
+            </GameContextProvider>
         </main>
     )
 }

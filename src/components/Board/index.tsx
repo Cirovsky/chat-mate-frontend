@@ -1,19 +1,22 @@
 import container from 'styles/Container.module.css';
 import styles from './Board.module.css';
-import { coordinates } from 'common/boardCoordinates';
 import { IField } from 'common/IField';
 import Line from './Line';
 import { ReactElement } from 'react';
-
-console.log(coordinates);
+import { useGameContext } from 'contexts/game';
 
 export default function Board() {
+
+    const {board} = useGameContext();
+
+    const copyBoard = [...board]
+
     const arrayLines: Array<ReactElement> = [];
 
     for(let l = 8; l >=1; l--){
-        const line:Array<IField> = coordinates
+        const line:Array<IField> = copyBoard
         .filter(field => field.line === l)
-        const lineElement:ReactElement = <Line key={l} fields={line} />
+        const lineElement:ReactElement = <Line key={l} fields={line} line={l}/>
         arrayLines.push(lineElement);
     }
 
