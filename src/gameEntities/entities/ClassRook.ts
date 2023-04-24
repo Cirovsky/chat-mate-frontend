@@ -32,8 +32,6 @@ export class ClassRook extends ClassPiece {
 
         function checkDirectionsRook(moveArray: Array<IField>, position: string, column: number, line: number, color: string) {
             const moveFiltered: Array<IField> = [];
-            let nullable = false;
-            let index = line;
 
             const filterArrayMovesVertical = (
                 target: number,
@@ -104,83 +102,6 @@ export class ClassRook extends ClassPiece {
             filterArrayMovesHorizontal(8, moveArray, column, line, color);
             filterArrayMovesHorizontal(1, moveArray, column, line, color);
 
-            /*  while (nullable === false) {
-                 console.log('teste');
-                 index++;
-                 const next = moveArray.find(field => field.id === (position + index))
-                 if (next?.piece === null && index <= 8) {
-                     console.log(next)
-                     const field: IField = next;
-                     moveFiltered.push(field);
-                 } else if (next?.piece && next.piece !== null && next.piece.color !== color) {
-                     const field: IField = next;
-                     moveFiltered.push(field);
-                     nullable = true;
-                 } else {
-                     nullable = true;
-                 }
-             } */
-
-            /*    nullable = false
-               index = line; */
-
-            /* while (nullable === false) {
-                console.log('teste');
-                index--;
-                const next = moveArray.find(field => field.id === (position + index))
-                if (next?.piece === null && index >= 1) {
-                    console.log(next)
-                    const field: IField = next;
-                    moveFiltered.push(field);
-                } else if (next?.piece && next.piece !== null && next.piece.color !== color) {
-                    const field: IField = next;
-                    moveFiltered.push(field);
-                    nullable = true;
-                } else {
-                    nullable = true;
-                }
-            } */
-
-             /* nullable = false
-             index = line;
-             let columnIndex = column;
- 
-             while (nullable === false) {
-                 columnIndex++;
-                 const positionColumn = String.fromCharCode(columnIndex + 96);
-                 const next = moveArray.find(field => field.id === (positionColumn + index))
-                 if (next?.piece === null && columnIndex <= 8) {
-                     console.log(next)
-                     const field: IField = next;
-                     moveFiltered.push(field);
-                 } else if (next?.piece && next.piece !== null && next.piece.color !== color) {
-                     const field: IField = next;
-                     moveFiltered.push(field);
-                     nullable = true;
-                 } else {
-                     nullable = true;
-                 }
-             }
- 
-             nullable = false
-             columnIndex = column;
- 
-             while (nullable === false) {
-                 columnIndex--;
-                 const positionColumn = String.fromCharCode(columnIndex + 96);
-                 const next = moveArray.find(field => field.id === (positionColumn + index))
-                 if (next?.piece === null && columnIndex >= 1) {
-                     console.log(next)
-                     const field: IField = next;
-                     moveFiltered.push(field);
-                 } else if (next?.piece && next.piece !== null && next.piece.color !== color) {
-                     const field: IField = next;
-                     moveFiltered.push(field);
-                     nullable = true;
-                 } else {
-                     nullable = true;
-                 }
-             } */
             return moveFiltered;
         }
 
