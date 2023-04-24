@@ -17,6 +17,7 @@ function createCoordinates() {
             const field: IField = {
                 id: `${String.fromCharCode(letter)}${number}`,
                 line: number,
+                column: letter - 96,
                 color: color ? 'black' : 'white',
                 placeable: false,
                 piece: null,

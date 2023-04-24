@@ -2,19 +2,11 @@ import React, { ReactElement } from 'react'
 import container from 'styles/Container.module.css';
 import styles from './Field.module.css';
 import Piece from 'gameEntities/Piece';
-import { ClassPiece } from 'gameEntities/entities/ClassPiece';
+//import { ClassPiece } from 'gameEntities/entities/ClassPiece';
 import { useGameContext } from 'contexts/game';
+import { IField } from 'common/IField';
 
-interface FieldProps {
-    id: string;
-    line: number;
-    color: string;
-    piece?: ClassPiece| null;
-    placeable: boolean;
-    selected: boolean;
-}
-
-export default function Field({ id, line, color, piece, placeable, selected }: FieldProps) {
+export default function Field({ id, column, line, color, piece, placeable, selected }: IField) {
     const { board, setBoard } = useGameContext();
 
     const showPossibleMoves = () => {

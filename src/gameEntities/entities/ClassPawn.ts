@@ -53,7 +53,6 @@ export class ClassPawn extends ClassPiece {
 
             const leftColumn: string | null = position > 1 ? "" + String.fromCharCode((position - 1) + 96) : null;
             const rightColumn: string | null = position !== 8 ? "" + String.fromCharCode((position + 1) + 96) : null;
-            console.log(rightColumn)
             const leftcaptureMove: string | null = leftColumn ? leftColumn + (line + move) : null;
             const rightcaptureMove: string | null = rightColumn ? rightColumn + (line + move) : null;
             const captureMoves: Array<IField> = leftcaptureMove || rightcaptureMove ? board
@@ -62,7 +61,6 @@ export class ClassPawn extends ClassPiece {
                         field.piece.color != color &&
                         (field.id === rightcaptureMove ||field.id === leftcaptureMove)
                     ) : [];
-            console.log(captureMoves);
             return captureMoves;
         }
     }
