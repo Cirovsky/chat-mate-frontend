@@ -85,12 +85,10 @@ const filterArrayMovesHorizontal = (
         while (nullable === false) {
             if (direction) {
                 columnIndex++;
-                console.log(columnIndex);
             } else {
                 columnIndex--;
             }
             const positionColumn = String.fromCharCode(columnIndex + 96);
-            console.log(positionColumn + line)
             const next = moveArray.find(field => field.id === (positionColumn + line));
             if (next?.piece === null && (direction ? columnIndex <= 8 : columnIndex >= 1)) {
                 const field: IField = next;

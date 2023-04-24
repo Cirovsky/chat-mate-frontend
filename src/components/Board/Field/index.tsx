@@ -2,12 +2,12 @@ import React, { ReactElement } from 'react'
 import container from 'styles/Container.module.css';
 import styles from './Field.module.css';
 import Piece from 'gameEntities/Piece';
-//import { ClassPiece } from 'gameEntities/entities/ClassPiece';
 import { useGameContext } from 'contexts/game';
 import { IField } from 'common/IField';
+import { ClassPiece } from 'gameEntities/entities/ClassPiece';
 
-export default function Field({ id, column, line, color, piece, placeable, selected }: IField) {
-    const { board, setBoard } = useGameContext();
+export default function Field({ id, color, piece, placeable, selected }: IField) {
+    const { board, setBoard, setCheck } = useGameContext();
 
     const showPossibleMoves = () => {
         const copyBoard = [...board];
@@ -54,6 +54,22 @@ export default function Field({ id, column, line, color, piece, placeable, selec
             copyBoard.forEach(field => field.placeable = false);
         }
         setBoard([...copyBoard]);
+        if(goal && goal?.piece){
+            checkingCkeck(goal?.piece);
+        }
+    }
+
+    const checkingCkeck = (piece:ClassPiece) =>{
+        const copyBoard = [...board];
+        piece.getPossibleMoves(copyBoard);
+        const findKing = piece.possibleMoves.find(field => field.piece?.type === "king");
+        if(findKing && findKing.piece){
+            console.log(`O rei ${findKing.piece.color === "white"? "branco" : "branco"} está em xeque.`);
+            findKing.piece.inCheck = true;
+            setCheck(true);
+            return true;
+        }
+        return false;
     }
 
     const pieceElement = piece ? <Piece piece={piece} /> : <></>

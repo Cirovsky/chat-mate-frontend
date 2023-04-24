@@ -6,6 +6,7 @@ export class ClassPiece{
     position: string;
     possibleMoves: Array<IField>;
     pieceId: string;
+    inCheck?: boolean;
     constructor(type: string, color: string, position: string){
         this.type = type;
         this.color = color;

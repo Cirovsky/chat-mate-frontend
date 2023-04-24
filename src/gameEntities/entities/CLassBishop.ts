@@ -47,7 +47,6 @@ function filterArrayMovesDiagonal (
             let columnIndex = column;
 
         while (nullable === false) {
-            console.log(String.fromCharCode(columnIndex + 96) + lineIndex)
             if (direction === "upRight") {
                 columnIndex++;
                 lineIndex++;

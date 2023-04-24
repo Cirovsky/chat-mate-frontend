@@ -2,8 +2,10 @@ import { IField } from "common/IField";
 import { ClassPiece } from "./ClassPiece";
 
 export class ClassKing extends ClassPiece{
+    inCheck: boolean;
     constructor(type: string, color: string, position: string){
-        super(type, color, position)
+        super(type, color, position);
+        this.inCheck = false;
     }
 
     getPossibleMoves(board: Array<IField>) {
