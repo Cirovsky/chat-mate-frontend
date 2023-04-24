@@ -10,24 +10,16 @@ export class ClassRook extends ClassPiece {
         const position = this.position;
         let [letter, line] = position.split("");
         const column: number = letter.charCodeAt(0) - 96;
-        const line2 = Number(line)
-        //const totalBoard = board.map(field => false);
-        const newBoard = [...board];
+        const line2 = Number(line);
         this.possibleMoves = checkPossibleMovesRook(this.color, column, line2, board);
 
         function checkPossibleMovesRook(color: string, column: number, line: number, board: Array<IField>) {
 
             let possibleMoves: Array<IField> = [];
             const position: string = "" + String.fromCharCode(column + 96);
-            const moveV: Array<IField> = board
-                .filter(field => field.id != (position + line) && field.column === column);
-            //const moveVFiltered: Array<IField> = [];
-            const moveVFiltered: Array<IField> = checkDirectionsRook(board, position, column, line, color);
-
-            possibleMoves = [...moveVFiltered]
+            possibleMoves = checkDirectionsRook(board, position, column, line, color);
 
             return possibleMoves;
-
         }
 
         function checkDirectionsRook(moveArray: Array<IField>, position: string, column: number, line: number, color: string) {
