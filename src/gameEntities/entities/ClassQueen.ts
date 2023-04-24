@@ -24,7 +24,13 @@ export class ClassQueen extends ClassPiece{
             return possibleMoves;
         }
 
-        function checkDirectionsQueen(moveArray: Array<IField>, position: string, column: number, line: number, color: string) {
+        function checkDirectionsQueen(
+            moveArray: Array<IField>, 
+            position: string, 
+            column: number, 
+            line: number, 
+            color: string) {
+                
             let moveFiltered: Array<IField> = [];
 
 
